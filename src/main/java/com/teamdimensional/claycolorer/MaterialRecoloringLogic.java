@@ -76,18 +76,18 @@ public class MaterialRecoloringLogic {
         MaterialRegistry<CMaterial> registry = ClayiumApi.INSTANCE.getMaterialRegistry();
         CMaterial regMat = registry.getObject(loc);
         if (regMat == null) {
-            ClayiumRecolorer.LOGGER.warn("Tried to change colors for %s, which does not exist", loc);
+            ClayiumRecolorer.LOGGER.warn("Tried to change colors for {}, which does not exist", loc);
             return false;
         }
         int[] colors = regMat.getColors();
         if (colors == null) {
             ClayiumRecolorer.LOGGER.warn(
-                    "Tried to change colors for %s, which is a placeholder material without colors", loc);
+                    "Tried to change colors for {}, which is a placeholder material without colors", loc);
             return false;
         }
         if (colors.length != newColors.length) {
             ClayiumRecolorer.LOGGER.warn(
-                    "Tried to change colors for %s, which has %d colors, but instead %d were provided",
+                    "Tried to change colors for {}, which has {} colors, but instead {} were provided",
                     loc, colors.length, newColors.length);
             return false;
         }
